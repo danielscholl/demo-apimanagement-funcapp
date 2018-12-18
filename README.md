@@ -29,6 +29,13 @@ dotnet restore Demo.Functions.sln
 dotnet build Demo.Functions.sln
 ```
 
+__Docker:__
+
+```powershell
+docker build -t functionapp .
+docker run -p 5000:80 functionapp
+```
+
 
 ### Deploy (bash cloud shell)
 
