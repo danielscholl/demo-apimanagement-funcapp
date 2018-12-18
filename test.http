@@ -1,0 +1,44 @@
+GET http://localhost:7071/api/ping HTTP/1.1
+
+
+
+###
+#  @name getTaskList
+
+GET http://localhost:7071/api/todo HTTP/1.1
+
+
+
+### 
+#  @name createTask
+
+POST http://localhost:7071/api/todo HTTP/1.1
+content-type: application/json
+
+{
+    "taskDescription": "Test Case 2"
+}
+
+
+### 
+#  @name getTask
+@taskId = {{createTask.response.body.$.id}}
+
+GET http://localhost:7071/api/todo/{{taskId}}  HTTP/1.1
+
+
+### 
+#  @name updateTask
+
+PUT http://localhost:7071/api/todo/{{taskId}} HTTP/1.1
+content-type: application/json
+
+{
+    "isCompleted": true
+}
+
+
+### 
+#  @name deleteTask
+
+DELETE http://localhost:7071/api/todo/{{taskId}} HTTP/1.1
